@@ -8,14 +8,18 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import pkg.Cuenta;
+
 class Test0014 {
 	
+	static Cuenta cta12345;
+	static Cuenta cta67890;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		
-		Cuenta cta12345 = new Cuenta(50);
-		Cuenta cta67890 = new Cuenta(0);
+		 cta12345 = new Cuenta("12345",50);
+		 cta67890 = new Cuenta("67890",0);
 	}
 
 	@AfterAll
@@ -35,9 +39,11 @@ class Test0014 {
 		cta12345.reintegro(200);
 		cta12345.ingreso(100);
 		cta12345.reintegro(200);
-		cta12345.getSaldo();
 		cta12345.getHistorialMov();
-		cta12345.getSaldoFinal();
+		
+		assertEquals(50, cta12345.getSaldo());
+		assertEquals(-250, cta12345.getSaldoFinal(1));
+
 	}
 	
 	@Test
@@ -46,9 +52,10 @@ class Test0014 {
 		cta67890.reintegro(200);
 		cta67890.reintegro(150);
 		cta67890.ingreso(50);
-		cta67890.getSaldo();
 		cta67890.getHistorialMov();
-		cta67890.getSaldoFinal();
+		
+		assertEquals(0, cta67890.getSaldo());
+		assertEquals(-450, cta67890.getSaldoFinal(2));
 	}
 
 }
