@@ -42,7 +42,7 @@ class Test0014 {
 		cta12345.getHistorialMov();
 		
 		assertEquals(50, cta12345.getSaldo());
-		assertEquals(-250, cta12345.getSaldoFinal(1));
+		assertEquals(-250, cta12345.getSaldoFinal());
 
 	}
 	
@@ -55,7 +55,7 @@ class Test0014 {
 		cta67890.getHistorialMov();
 		
 		assertEquals(0, cta67890.getSaldo());
-		assertEquals(-450, cta67890.getSaldoFinal(2));
+	    assertEquals(-450, cta67890.getSaldoFinal());
 	}
 
 }
